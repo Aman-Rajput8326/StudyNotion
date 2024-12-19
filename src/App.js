@@ -1,7 +1,6 @@
 import "./App.css";
 import Navbar from "./Components/Navbar";
 import Login from "./Components/Login";
-import Home from "./Components/Home.jsx";
 import Signup from "./Components/Signup";
 import Dashboard from "./Components/Dashboard";
 import PrivateRoute from "./Components/PrivateRoute";
@@ -15,7 +14,8 @@ function App() {
     <div className="w-screen h-screen bg-richblack-900 flex flex-col">
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Routes>
-        <Route path="/" element={<Navigate to="/login" />} />
+        {/* Ensure default route "/" redirects to "/login" */}
+        <Route path="/" element={<Navigate replace to="/login" />} />
         <Route
           path="/login"
           element={<Login setIsLoggedIn={setIsLoggedIn} />}
@@ -32,7 +32,8 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="/home" element={<Home />} />
+        {/* Optional: Fallback route */}
+        <Route path="*" element={<Navigate replace to="/login" />} />
       </Routes>
     </div>
   );

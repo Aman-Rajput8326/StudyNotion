@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 import loginImg from "../assets/login.png";
-import Template from './Template';
+import Template from "./Template";
 
 function Login({ setIsLoggedIn }) {
   return (
@@ -15,5 +15,4 @@ function Login({ setIsLoggedIn }) {
   );
 }
 
-
-export default Login
+export default Login;
