@@ -5,7 +5,7 @@ import Home from "./Components/Home.jsx";
 import Signup from "./Components/Signup";
 import Dashboard from "./Components/Dashboard";
 import PrivateRoute from "./Components/PrivateRoute";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import React, { useState } from "react";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
     <div className="w-screen h-screen bg-richblack-900 flex flex-col">
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Routes>
-      <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/" element={<Navigate to="/login" />} />
         <Route
           path="/login"
           element={<Login setIsLoggedIn={setIsLoggedIn} />}
@@ -24,7 +24,6 @@ function App() {
           path="/signup"
           element={<Signup setIsLoggedIn={setIsLoggedIn} />}
         />
-        {/* Corrected PrivateRoute usage */}
         <Route
           path="/dashboard"
           element={
@@ -33,6 +32,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/home" element={<Home />} />
       </Routes>
     </div>
   );
