@@ -142,7 +142,7 @@ const SignupForm = (props) => {
             />
             <span
               onClick={() => setShowCreatePass(!showCreatePass)}
-              className="absolute right-3 top-[38px] cursor-pointer z-10"
+              className="hidden absolute right-3 top-[38px] cursor-pointer z-10"
             >
               {showCreatePass ? (
                 <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
